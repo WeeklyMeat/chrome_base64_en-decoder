@@ -1,0 +1,90 @@
+body {
+
+    display: inline-block;
+    width: 300px;
+    margin: 0;
+
+    font-family: 'Roboto', sans-serif;
+    color: white;
+
+    background: #48C74E;
+    background: linear-gradient(153deg, #48C74E 0%, #42D49C 100%);
+}
+
+#header {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    width: 100%;
+
+    color:  #48C74E;
+    font-size: 2em;
+    font-weight: 900;
+
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#content {
+
+    width: 80%;
+    padding: 10% 10% 10% 10%;
+}
+
+#hashInput {
+
+    min-height: 2.1em;
+    width: 100%;
+    border: 0;
+    padding: 0;
+
+    background: transparent;
+    border-bottom: solid 2px  white;
+    text-align: center;
+    outline: none;
+
+    font-size: 2em;
+    color: white;
+    font-family: inherit;
+}
+
+#hashInput::placeholder {
+
+    color: rgba(255, 255, 255, 0.5);
+    font-size: inherit;
+    font-family: inherit;
+}
+
+#hashValue {
+
+    display: inline-block;
+    width: 100%;
+
+    word-wrap: break-word;
+    color: white;
+    font-size: 1.6em;
+}
+
+#buttonCopy {
+
+    min-width: 100px;
+    min-height: 50px;
+    padding: 0.5em;
+
+    border: none;
+    border-radius: 5px;
+    background: rgb(220, 220, 220);
+    background: linear-gradient(153deg, rgb(220, 220, 220) 0%, rgb(255, 255, 255) 100%);
+
+    color:  #48C74E;
+    font-size: 2em;
+    font-family: inherit;
+    cursor: pointer;
+    outline: none;
+}
+
+#buttonCopy:active {
+
+    background: rgba(220, 220, 220, 0.9);
+}
