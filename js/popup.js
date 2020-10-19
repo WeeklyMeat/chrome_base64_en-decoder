@@ -1,5 +1,3 @@
-document.execCommand("Paste");
-
 document.getElementById("hashInput").addEventListener("input", updateSHA);
 
 function updateSHA() {
