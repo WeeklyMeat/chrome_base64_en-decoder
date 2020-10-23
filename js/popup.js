@@ -1,6 +1,27 @@
 document.getElementById("form-input").addEventListener("input", function() {
     updateOutput(atob);
 });
+document.getElementById("btnSwitch").addEventListener("click", switchToEncode);
+
+function switchToDecode() {
+
+    document.getElementById("form-input").oninput = function() {
+        updateOutput(btoa);
+    };
+
+    document.getElementById("header-text").innerHTML = "base64 decode";
+    document.getElementById("btnSwitch").onclick = switchToEncode;
+}
+
+function switchToEncode() {
+
+    document.getElementById("form-input").oninput = function() {
+        updateOutput(atob);
+    };
+
+    document.getElementById("header-text").innerHTML = "base64 encode";
+    document.getElementById("btnSwitch").onclick = switchToDecode;
+}
 
 function updateOutput(transform) {
 
