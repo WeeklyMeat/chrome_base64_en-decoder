@@ -1,26 +1,30 @@
-document.getElementById("hashInput").addEventListener("input", updateSHA);
+document.getElementById("form-input").addEventListener("input", function() {
+    updateOutput(atob);
+});
 
-function updateSHA() {
+function updateOutput(transform) {
 
-    let hashInput = document.getElementById("hashInput").value;
-    let hashValue = atob(hashInput);
-    document.getElementById("hashValue").innerHTML = hashValue;
+    let input = document.getElementById("form-input").value;
+    let resultValue = transform(input);
+    document.getElementById("resultValue").innerHTML = resultValue;
+    updateBtnCopy();
+}
 
-    let isEmpty = document.getElementById("hashInput").value === "";
+function updateBtnCopy() {
 
-    if(isEmpty && document.getElementById("buttonCopy")) {
-        document.getElementById("buttonCopy").remove();
-        document.getElementById("hashValue").innerHTML = "";
+    if(document.getElementById("form-input").value === "" && document.getElementById("btnCopy")) {
+        document.getElementById("btnCopy").remove();
+        document.getElementById("resultValue").innerHTML = "";
     }
     else {
-        if (!document.getElementById("buttonCopy")) {
+        if (!document.getElementById("btnCopy")) {
 
             let btn = document.createElement("BUTTON");
             let contentDiv = document.getElementById("content");
             contentDiv.appendChild(btn);
 
             btn.innerHTML = "Copy";
-            btn.id = "buttonCopy";
+            btn.id = "btnCopy";
             btn.addEventListener("click", copyHashValue);
         }
     }
@@ -28,7 +32,7 @@ function updateSHA() {
 
 function copyHashValue() {
 
-    let hashValue = document.getElementById("hashValue").innerHTML;
+    let hashValue = document.getElementById("resultValue").innerHTML;
 
     let tempInput = document.createElement("input");
     tempInput.value = hashValue;
