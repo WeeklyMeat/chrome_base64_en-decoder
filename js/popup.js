@@ -6,21 +6,29 @@ document.getElementById("btnSwitch").addEventListener("click", switchToEncode);
 function switchToDecode() {
 
     document.getElementById("form-input").oninput = function() {
-        updateOutput(btoa);
+        updateOutput(atob);
     };
 
     document.getElementById("header-text").innerHTML = "base64 decode";
+    document.getElementById("btnSwitch").removeEventListener("click", switchToDecode);
     document.getElementById("btnSwitch").onclick = switchToEncode;
+
+    document.getElementById("form-input").value = document.getElementById("resultValue").innerHTML;
+    updateOutput(atob);
 }
 
 function switchToEncode() {
 
     document.getElementById("form-input").oninput = function() {
-        updateOutput(atob);
+        updateOutput(btoa);
     };
 
     document.getElementById("header-text").innerHTML = "base64 encode";
+    document.getElementById("btnSwitch").removeEventListener("click", switchToEncode);
     document.getElementById("btnSwitch").onclick = switchToDecode;
+
+    document.getElementById("form-input").value = document.getElementById("resultValue").innerHTML;
+    updateOutput(btoa);
 }
 
 function updateOutput(transform) {
@@ -38,7 +46,7 @@ function updateBtnCopy() {
         document.getElementById("resultValue").innerHTML = "";
     }
     else {
-        if (!document.getElementById("btnCopy")) {
+        if (document.getElementById("form-input").value && !document.getElementById("btnCopy")) {
 
             let btn = document.createElement("BUTTON");
             let contentDiv = document.getElementById("content");
@@ -46,6 +54,7 @@ function updateBtnCopy() {
 
             btn.innerHTML = "Copy";
             btn.id = "btnCopy";
+            btn.className = "btn"
             btn.addEventListener("click", copyHashValue);
         }
     }
