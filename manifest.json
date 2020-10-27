@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "base64 decoder",
-    "description": "Decodes your base64 encoded texts right in your browser!",
+    "description": "Easily en- and decode any text to/from base64 right in your browser!",
     "version": "1.0.0",
     "icons": {
         "256": "icon_256.png"
